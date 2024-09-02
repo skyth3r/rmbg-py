@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% if current_user.is_authenticated %}
+  <div class="container">
+    <div id="dropZone" class="drop-zone">
+      <h1>rmbg</h1>
+      <form
+        id="uploadForm"
+        action="/"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <input id="fileInput" type="file" name="file" />
+      </form>
+      <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+        <p>Processing... Please wait.</p>
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <div class="not-logged-in-container">
+    <h2>Remove backgrounds from images with Python</h2>
+    {% if config.ALLOW_REGISTRATION %}
+        <p>Please <a href="{{ url_for('auth.login') }}">login</a> or <a href="{{ url_for('auth.register') }}">register</a> to use the application.</p>
+    {% else %}
+        <p>Please <a href="{{ url_for('auth.login') }}">login</a> to use the application.</p>
+    {% endif %}
+  </div>
+  {% endif %}
+  <script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+{% endblock %}

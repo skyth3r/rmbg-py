@@ -1,0 +1,23 @@
+[project]
+name = "rmbg-py"
+version = "1.0.0"
+description = "Background removal web app with login system"
+dependencies = [
+    "flask",
+    "flask-login",
+    "flask-wtf",
+    "Flask-SQLAlchemy",
+    "rembg",
+    "pillow"
+]
+
+[build-system]
+requires = ["flit_core<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["flaskr"]

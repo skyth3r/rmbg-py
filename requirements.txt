@@ -1,0 +1,6 @@
+flask
+flask-login
+flask-wtf
+Flask-SQLAlchemy
+rembg
+pillow
