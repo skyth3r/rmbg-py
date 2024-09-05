@@ -4,7 +4,7 @@ FROM python:3.12-slim
 # copy model from repository root to avoid unnecessary download
 COPY u2net.onnx /home/.u2net/u2net.onnx
 
-WORKDIR /app
+WORKDIR /rmbg
 
 COPY requirements.txt .
 
@@ -14,4 +14,4 @@ COPY . .
 
 EXPOSE 5100
 
-CMD ["python", "app.py"]
+CMD ["python", "run.py"]
